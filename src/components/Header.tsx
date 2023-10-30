@@ -1,5 +1,6 @@
 import { ConnectWallet } from "@thirdweb-dev/react";
 import Image from "next/image";
+import { ColorModeSwitcher } from "./ColorModeSwitcher"
 import styles from "../styles/Header.module.css";
 import Link from "next/link";
 
@@ -15,6 +16,7 @@ export const Header = () => {
           className={styles.logo}
         />
       </Link>
+      <ColorModeSwitcher />
       <ConnectWallet theme="dark" />
     </nav>
   );

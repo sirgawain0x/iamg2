@@ -33,7 +33,7 @@ export default function Login() {
     <div className={styles.container}>
       <Header />
       <h2 className={styles.heading}>Welcome G2 Gang</h2>
-      <h2 className={styles.h2}>Your Exclusive Gateway to the Future of Entertainment, Powered by NFTs.</h2>
+      <h2 className={styles.h2}>Your Exclusive Gateway to the Future of Entertainment.</h2>
 
       <p className={styles.explain}>
       Your All-Access Pass to G2&apos;s Sonic Universe{" "}
@@ -72,10 +72,12 @@ export default function Login() {
             
           </div>
         )}
+
         {contractLoading && <p>Loading...</p>}
 
         <ConnectWallet theme="dark" className={styles.connect} />
       </div>
+      
     </div>
   );
 }

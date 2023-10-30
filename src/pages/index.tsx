@@ -3,7 +3,6 @@ import {
   MediaRenderer,
   useContract,
   useNFT,
-  ThirdwebNftMedia,
   useContractMetadata,
   useUser,
 } from "@thirdweb-dev/react";
@@ -23,8 +22,6 @@ export default function Home() {
   const { data: contractMetadata, isLoading: contractLoading } =
     useContractMetadata(contract);
 
-    const { data: nft, isLoading: loadingNft, error: nftError } = useNFT(contract, "0");
-
   useEffect(() => {
     if (!isLoading && !isLoggedIn) {
       router.push("/login");
@@ -35,7 +32,7 @@ export default function Home() {
     <div className={styles.container}>
       <Header />
       <h2 className={styles.heading}>Welcome G2 Gang</h2>
-      <h2 className={styles.h2}>Your Exclusive Gateway to the Future of Entertainment, Powered by NFTs.</h2>
+      <h2 className={styles.h2}>Your Exclusive Gateway to the Future of Entertainment.</h2>
 
       <p className={styles.explain}>
       Your All-Access Pass to G2&apos;s Sonic Universe{" "}
@@ -49,13 +46,6 @@ export default function Home() {
         </a>
         .{" "}
       </p>
-      <p><b>Steps:</b></p>
-      <ol>
-        <li><b>Cop an NFT:</b> Buy your unique G2 NFT to unlock the experience.</li>
-        <li><b>Step Inside:</b> Dive into a catalog of exclusive tracks, videos, and live events.</li>
-        <li><b>Join the Beat Revolution:</b> Be part of a new era in music, fueled by NFTs.</li>
-      </ol>
-
       <div className={styles.card}>
         <h3>&#128275; Exclusive Unlocked</h3>
         <p>Your NFT unlocked access to this product.</p>
@@ -79,7 +69,7 @@ export default function Home() {
         <ConnectWallet theme="dark" className={styles.connect} />
       </div>
       <div className={styles.nft}>
-        <MediaRenderer src={process.env.NEXT_PUBLIC_VIDEO} requireInteraction width={"1080"} />
+        <iframe src="https://lvpr.tv?v=9477p8y4da3knfr5"  width={500} height={400} allowFullScreen allow="autoplay; encrypted-media; picture-in-picture" sandbox="allow-same-origin allow-scripts"></iframe>
       </div>
     </div>
   );
