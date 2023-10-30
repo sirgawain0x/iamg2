@@ -79,7 +79,7 @@ export default function Home() {
         <ConnectWallet theme="dark" className={styles.connect} />
       </div>
       <div className={styles.nft}>
-        <MediaRenderer src={"https://bafybeifhhxetmd7hrljd2wj23gdbjd7nrzspq44brqannh2ufiib3b65fa.ipfs.nftstorage.link/"} requireInteraction width={"1080"} />
+        <MediaRenderer src={process.env.NEXT_PUBLIC_VIDEO} requireInteraction width={"1080"} />
       </div>
     </div>
   );
