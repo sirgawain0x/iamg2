@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@chakra-ui/react": "^2.8.1",
+    "@crossmint/client-sdk-react-ui": "^1.1.2-alpha.0",
     "@decent.xyz/the-box": "^1.1.58",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
