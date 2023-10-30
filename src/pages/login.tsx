@@ -32,39 +32,44 @@ export default function Login() {
   return (
     <div className={styles.container}>
       <Header />
-      <h2 className={styles.heading}>NFT Gated Content </h2>
-      <h1 className={styles.h1}>Auth</h1>
+      <h2 className={styles.heading}>Welcome G2 Gang</h2>
+      <h2 className={styles.h2}>Your Exclusive Gateway to the Future of Entertainment, Powered by NFTs.</h2>
 
       <p className={styles.explain}>
-        Serve exclusive content to users who own an NFT from <br />
-        your collection, using{" "}
+      Your All-Access Pass to G2&apos;s Sonic Universe{" "}
         <a
           className={styles.link}
-          href="https://portal.thirdweb.com/auth"
+          href="https://iamg2.com"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Auth
+          Iamg2.com
         </a>
         .{" "}
       </p>
+      <p><b>Steps:</b></p>
+      <ol>
+        <li><b>Cop an NFT:</b> Buy your unique G2 NFT to unlock the experience.</li>
+        <li><b>Step Inside:</b> Dive into a catalog of exclusive tracks, videos, and live events.</li>
+        <li><b>Join the Beat Revolution:</b> Be part of a new era in music, fueled by NFTs.</li>
+      </ol>
 
       <div className={styles.card}>
-        <h3>Holder exclusive</h3>
+        <h3>&#128274; Holder Exclusive</h3>
         <p>To unlock this product, you need:</p>
 
         {contractMetadata && (
           <div className={styles.nft}>
             <MediaRenderer
-              src={contractMetadata.image}
+              src={"https://bafybeieqa2tzwz2xoe3fomhq5heosleymxixmfdrcfo5dlifymjpqsntza.ipfs.nftstorage.link/Monster%20Lyric%20Video.png"}
               alt={contractMetadata.name}
               width="70px"
               height="70px"
             />
             <div className={styles.nftDetails}>
               <h4>{contractMetadata.name}</h4>
-              <p>{contractMetadata.description.substring(0, 100)}...</p>
             </div>
+            
           </div>
         )}
         {contractLoading && <p>Loading...</p>}
@@ -100,7 +105,7 @@ export async function getServerSideProps(context) {
   // Instantiate our SDK
   const sdk = ThirdwebSDK.fromPrivateKey(
     process.env.THIRDWEB_AUTH_PRIVATE_KEY,
-    "mumbai",
+    "polygon",
     { secretKey }
   );
 

@@ -2,6 +2,8 @@ import {
   ConnectWallet,
   MediaRenderer,
   useContract,
+  useNFT,
+  ThirdwebNftMedia,
   useContractMetadata,
   useUser,
 } from "@thirdweb-dev/react";
@@ -21,6 +23,8 @@ export default function Home() {
   const { data: contractMetadata, isLoading: contractLoading } =
     useContractMetadata(contract);
 
+    const { data: nft, isLoading: loadingNft, error: nftError } = useNFT(contract, "0");
+
   useEffect(() => {
     if (!isLoading && !isLoggedIn) {
       router.push("/login");
@@ -30,44 +34,52 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Header />
-      <h2 className={styles.heading}>NFT Gated Content </h2>
-      <h1 className={styles.h1}>Auth</h1>
+      <h2 className={styles.heading}>Welcome G2 Gang</h2>
+      <h2 className={styles.h2}>Your Exclusive Gateway to the Future of Entertainment, Powered by NFTs.</h2>
 
       <p className={styles.explain}>
-        Serve exclusive content to users who own an NFT from <br />
-        your collection, using{" "}
+      Your All-Access Pass to G2&apos;s Sonic Universe{" "}
         <a
           className={styles.link}
-          href="https://portal.thirdweb.com/auth"
+          href="iamg2.com"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Auth
+          Iamg2.com
         </a>
         .{" "}
       </p>
+      <p><b>Steps:</b></p>
+      <ol>
+        <li><b>Cop an NFT:</b> Buy your unique G2 NFT to unlock the experience.</li>
+        <li><b>Step Inside:</b> Dive into a catalog of exclusive tracks, videos, and live events.</li>
+        <li><b>Join the Beat Revolution:</b> Be part of a new era in music, fueled by NFTs.</li>
+      </ol>
 
       <div className={styles.card}>
-        <h3>Exclusive unlocked</h3>
+        <h3>&#128275; Exclusive Unlocked</h3>
         <p>Your NFT unlocked access to this product.</p>
 
         {contractMetadata && (
           <div className={styles.nft}>
             <MediaRenderer
-              src={contractMetadata.image}
+              src={"https://bafybeieqa2tzwz2xoe3fomhq5heosleymxixmfdrcfo5dlifymjpqsntza.ipfs.nftstorage.link/Monster%20Lyric%20Video.png"}
               alt={contractMetadata.name}
               width="70px"
               height="70px"
             />
             <div className={styles.nftDetails}>
               <h4>{contractMetadata.name}</h4>
-              <p>{contractMetadata.description}</p>
             </div>
+            
           </div>
         )}
         {contractLoading && <p>Loading...</p>}
 
         <ConnectWallet theme="dark" className={styles.connect} />
+      </div>
+      <div className={styles.nft}>
+        <MediaRenderer src={"https://bafybeifhhxetmd7hrljd2wj23gdbjd7nrzspq44brqannh2ufiib3b65fa.ipfs.nftstorage.link/"} requireInteraction width={"1080"} />
       </div>
     </div>
   );
@@ -102,7 +114,7 @@ export async function getServerSideProps(context) {
   // Instantiate our SDK
   const sdk = ThirdwebSDK.fromPrivateKey(
     process.env.THIRDWEB_AUTH_PRIVATE_KEY,
-    "mumbai",
+    "polygon",
     { secretKey }
   );
 

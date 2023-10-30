@@ -8,10 +8,10 @@ export const Header = () => {
     <nav className={styles.header}>
       <Link href="/">
         <Image
-          src="/thirdweb.svg"
+          src="/logo200.png"
           alt="thirdweb"
           width={52}
-          height={32}
+          height={52}
           className={styles.logo}
         />
       </Link>

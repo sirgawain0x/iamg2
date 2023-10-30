@@ -1,8 +1,8 @@
 // Replace this with your contract address
-export const contractAddress = "0x436492DBc2E30E56FaC8F2297BD1964833c0687d";
+export const contractAddress = "0x624A5dF09a4fbe46B113D95B58D33CD9186d08bC";
 
 // Replace this with your domain name.
-export const domainName = "thirdweb-example.com";
+export const domainName = "creativeplatform.xyz";
 
 // Minimum number of tokens required to access
 export const minimumBalance = 1;
